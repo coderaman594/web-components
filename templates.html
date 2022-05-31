@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+    <template>
+        <h1>Hello World !!</h1>
+    </template>
+
+    <cool-heading></cool-heading>
+
+    <script>
+        class CoolHeading extends HTMLElement {
+            constructor() {
+                super();
+                this.addEventListener('click', () => {
+                    this.style.color = 'blue';
+                    this.style.fontStyle = 'normal';
+                })
+            }
+            connectedCallback() {
+                const template = document.querySelector('template');
+                const clone = document.importNode(template.content, true);
+                this.appendChild(clone);
+            }
+        }
+        customElements.define('cool-heading', CoolHeading);
+    </script>
+</body>
+
+</html>
+
+<!-- Templates Example -->

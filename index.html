@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+    <cool-heading>
+        <h1>Hello World !!</h1>
+    </cool-heading>
+    <script>
+        class CoolHeading extends HTMLElement {
+            constructor() {
+                super();
+                this.addEventListener('click', () => {
+                    this.style.color = 'blue';
+                    this.style.fontStyle = 'normal';
+                })
+            }
+            connectedCallback() {
+                this.style.fontStyle = 'italic';
+                this.style.color = 'green';
+                console.log("cool heading connected");
+            }
+        }
+        customElements.define('cool-heading', CoolHeading);
+    </script>
+</body>
+
+</html>
+
+<!-- Custom Elements & Its customization Example -->
